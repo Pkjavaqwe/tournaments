@@ -1,0 +1,209 @@
+# User Service Postgres
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-postgres-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-postgres
+  template:
+    metadata:
+      labels:
+        app: user-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: user_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-postgres-srv
+spec:
+  selector:
+    app: user-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+# Tournament Service Postgres
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tournament-postgres-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tournament-postgres
+  template:
+    metadata:
+      labels:
+        app: tournament-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: tournament_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tournament-postgres-srv
+spec:
+  selector:
+    app: tournament-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+# Participation Service Postgres
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: participation-postgres-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: participation-postgres
+  template:
+    metadata:
+      labels:
+        app: participation-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: participation_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: participation-postgres-srv
+spec:
+  selector:
+    app: participation-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+# Organizer Service Postgres
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: organizer-postgres-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: organizer-postgres
+  template:
+    metadata:
+      labels:
+        app: organizer-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: organizer_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: organizer-postgres-srv
+spec:
+  selector:
+    app: organizer-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+# Query Service Postgres
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: query-postgres-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: query-postgres
+  template:
+    metadata:
+      labels:
+        app: query-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: query_db
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: query-postgres-srv
+spec:
+  selector:
+    app: query-postgres
+  ports:
+    - port: 5432
+      targetPort: 5432

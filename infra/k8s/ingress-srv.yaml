@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: tournaments-rbac.dev
+      http:
+        paths:
+          # User service (auth)
+          - path: /api/users/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: user-srv
+                port:
+                  number: 3000
+          # Tournament service (CRUD)
+          - path: /api/tournaments/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: tournament-srv
+                port:
+                  number: 3000
+          # Participation service (join/leave)
+          - path: /api/participations/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: participation-srv
+                port:
+                  number: 3000
+          # Organizer service (approve/reject)
+          - path: /api/organizer/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: organizer-srv
+                port:
+                  number: 3000
+          # Email service (logs endpoint)
+          - path: /api/email/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: email-srv
+                port:
+                  number: 3000
+          # Query service (CQRS read model)
+          - path: /api/query/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: query-srv
+                port:
+                  number: 3000

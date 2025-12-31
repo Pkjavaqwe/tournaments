@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tournament-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tournament
+  template:
+    metadata:
+      labels:
+        app: tournament
+    spec:
+      containers:
+        - name: tournament
+          image: tournaments-rbac/tournament
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: tournaments-rbac
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: DB_HOST
+              value: tournament-postgres-srv
+            - name: DB_PORT
+              value: '5432'
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: DB_NAME
+              value: tournament_db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tournament-srv
+spec:
+  selector:
+    app: tournament
+  ports:
+    - port: 3000
+      targetPort: 3000

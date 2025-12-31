@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: organizer-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: organizer
+  template:
+    metadata:
+      labels:
+        app: organizer
+    spec:
+      containers:
+        - name: organizer
+          image: tournaments-rbac/organizer
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: tournaments-rbac
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: DB_HOST
+              value: organizer-postgres-srv
+            - name: DB_PORT
+              value: '5432'
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: DB_NAME
+              value: organizer_db
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: organizer-srv
+spec:
+  selector:
+    app: organizer
+  ports:
+    - port: 3000
+      targetPort: 3000

@@ -1,0 +1,59 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+metadata:
+  name: tournaments-rbac
+build:
+  local:
+    push: false
+  artifacts:
+    - image: tournaments-rbac/user
+      context: user
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: tournaments-rbac/tournament
+      context: tournament
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: tournaments-rbac/participation
+      context: participation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: tournaments-rbac/organizer
+      context: organizer
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: tournaments-rbac/email
+      context: email
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: tournaments-rbac/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
