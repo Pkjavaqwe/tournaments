@@ -46,5 +46,5 @@ spec:
   selector:
     app: query
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 3004
+      targetPort: 3004

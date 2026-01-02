@@ -67,8 +67,8 @@ const start = async () => {
     process.exit(1);
   }
 
-  app.listen(3000, () => {
-    console.log('Query Service listening on port 3000');
+  app.listen(3004, () => {
+    console.log('Query Service listening on port 3004');
   });
 };
 

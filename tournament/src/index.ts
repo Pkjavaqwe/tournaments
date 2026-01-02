@@ -48,8 +48,8 @@ const start = async () => {
     console.error(err);
   }
 
-  app.listen(3000, () => {
-    console.log('Tournament service listening on port 3000!');
+  app.listen(3001, () => {
+    console.log('Tournament service listening on port 3001!');
   });
 };
 
