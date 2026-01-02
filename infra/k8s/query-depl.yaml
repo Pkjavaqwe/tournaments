@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: query
-          image: tournaments-rbac/query
+          image: tournaments/query
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

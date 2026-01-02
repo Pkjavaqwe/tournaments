@@ -1,59 +1,71 @@
 apiVersion: skaffold/v4beta3
 kind: Config
 metadata:
-  name: tournaments-rbac
+  name: tournaments
 build:
   local:
     push: false
   artifacts:
-    - image: tournaments-rbac/user
-      context: user
+    - image: tournaments/user
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: user/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-    - image: tournaments-rbac/tournament
-      context: tournament
+          - src: 'user/src/**/*.ts'
+            dest: ./user
+          - src: 'common/src/**/*.ts'
+            dest: ./common
+    - image: tournaments/tournament
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: tournament/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-    - image: tournaments-rbac/participation
-      context: participation
+          - src: 'tournament/src/**/*.ts'
+            dest: ./tournament
+          - src: 'common/src/**/*.ts'
+            dest: ./common
+    - image: tournaments/participation
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: participation/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-    - image: tournaments-rbac/organizer
-      context: organizer
+          - src: 'participation/src/**/*.ts'
+            dest: ./participation
+          - src: 'common/src/**/*.ts'
+            dest: ./common
+    - image: tournaments/organizer
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: organizer/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-    - image: tournaments-rbac/email
-      context: email
+          - src: 'organizer/src/**/*.ts'
+            dest: ./organizer
+          - src: 'common/src/**/*.ts'
+            dest: ./common
+    - image: tournaments/email
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: email/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
-    - image: tournaments-rbac/query
-      context: query
+          - src: 'email/src/**/*.ts'
+            dest: ./email
+          - src: 'common/src/**/*.ts'
+            dest: ./common
+    - image: tournaments/query
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: query/Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.ts'
-            dest: .
+          - src: 'query/src/**/*.ts'
+            dest: ./query
+          - src: 'common/src/**/*.ts'
+            dest: ./common
 manifests:
   rawYaml:
     - ./infra/k8s/*

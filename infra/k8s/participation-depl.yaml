@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: participation
-          image: tournaments-rbac/participation
+          image: tournaments/participation
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

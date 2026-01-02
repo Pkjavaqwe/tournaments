@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev --poll src/index.ts"
+   "start": "ts-node-dev --poll src/index.ts"
   },
   "dependencies": {
     "cookie-session": "^2.1.0",

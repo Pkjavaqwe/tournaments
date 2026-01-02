@@ -3,7 +3,9 @@ import {
   PrimaryColumn,
   Column,
   VersionColumn,
+  OneToMany,
 } from 'typeorm';
+import { Participation } from './participation';
 
 /**
  * Local replica of Tournament data
@@ -34,4 +36,7 @@ export class Tournament {
 
   @VersionColumn()
   version!: number;
+
+  @OneToMany(() => Participation, (participation) => participation.tournament)
+  participations!: Participation[];
 }

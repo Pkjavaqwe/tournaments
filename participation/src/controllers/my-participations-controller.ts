@@ -12,6 +12,7 @@ export const myParticipationsController = async (req: Request, res: Response) =>
   const participationRepo = AppDataSource.getRepository(Participation);
   const participations = await participationRepo.find({
     where: { participantId },
+    relations: ['tournament'],
     order: { createdAt: 'DESC' },
   });
 

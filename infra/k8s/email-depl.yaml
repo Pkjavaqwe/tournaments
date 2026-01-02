@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: email
-          image: tournaments-rbac/email
+          image: tournaments/email
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

@@ -6,8 +6,11 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Unique,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 import { ParticipationStatus } from '../../../common/src';
+import { Tournament } from './tournament';
 
 @Entity('participations')
 @Unique(['tournamentId', 'participantId'])
@@ -17,6 +20,10 @@ export class Participation {
 
   @Column()
   tournamentId!: string;
+
+  @ManyToOne(() => Tournament, (tournament) => tournament.participations)
+  @JoinColumn({ name: 'tournamentId' })
+  tournament!: Tournament;
 
   @Column()
   participantId!: string;

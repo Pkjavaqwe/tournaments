@@ -9,8 +9,12 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "paths": {
+      "@common/*": ["../common/src/*"]
+    }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../common/src/**/*"],
   "exclude": ["node_modules"]
 }

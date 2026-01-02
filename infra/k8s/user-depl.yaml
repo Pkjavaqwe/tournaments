@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user
-          image: tournaments-rbac/user
+          image: tournaments/user
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

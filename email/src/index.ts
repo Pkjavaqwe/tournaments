@@ -38,7 +38,7 @@ const start = async () => {
     new ParticipationApprovedListener(natsWrapper.client).listen();
     new ParticipationRejectedListener(natsWrapper.client).listen();
 
-    console.log('📧 Email service listening for events...');
+    console.log('Email service listening for events...');
   } catch (err) {
     console.error(err);
   }
