@@ -5,17 +5,12 @@ import { BadRequestError, NotFoundError, ParticipationStatus } from '../../../co
 import { ParticipationLeftPublisher } from '../events/publishers/participation-left-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
-/**
- * Leave Tournament Controller
- * Only participants can leave (RBAC enforced in route)
- */
 export const leaveTournamentController = async (req: Request, res: Response) => {
   const { tournamentId } = req.params;
   const participantId = req.currentUser!.id;
 
   const participationRepo = AppDataSource.getRepository(Participation);
 
-  // Find participation record
   const participation = await participationRepo.findOne({
     where: { tournamentId, participantId },
   });
@@ -29,7 +24,6 @@ export const leaveTournamentController = async (req: Request, res: Response) => 
   }
 
   if (participation.status === ParticipationStatus.PENDING) {
-    // If pending, just delete the request
     await participationRepo.remove(participation);
     
     res.send({ message: 'Join request cancelled' });
@@ -37,11 +31,9 @@ export const leaveTournamentController = async (req: Request, res: Response) => 
   }
 
   if (participation.status === ParticipationStatus.APPROVED) {
-    // Mark as left
     participation.status = ParticipationStatus.LEFT;
     await participationRepo.save(participation);
 
-    // Publish event (tournament service will decrement participant count)
     await new ParticipationLeftPublisher(natsWrapper.client).publish({
       id: participation.id,
       tournamentId,

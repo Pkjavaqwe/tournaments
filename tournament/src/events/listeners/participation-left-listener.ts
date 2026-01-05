@@ -21,13 +21,11 @@ export class ParticipationLeftListener extends Listener<ParticipationLeftEvent> 
       return;
     }
 
-    // Decrement participant count (with optimistic locking via version)
     tournament.currentParticipants = Math.max(0, tournament.currentParticipants - 1);
     
     try {
       await tournamentRepo.save(tournament);
       
-      // Publish tournament updated event
       await new TournamentUpdatedPublisher(natsWrapper.client).publish({
         id: tournament.id,
         title: tournament.title,

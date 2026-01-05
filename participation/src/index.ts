@@ -25,7 +25,6 @@ const start = async () => {
   }
 
   try {
-    // Connect to NATS
     await natsWrapper.connect(
       process.env.NATS_CLUSTER_ID,
       process.env.NATS_CLIENT_ID,
@@ -39,17 +38,13 @@ const start = async () => {
     process.on('SIGINT', () => natsWrapper.close());
     process.on('SIGTERM', () => natsWrapper.close());
 
-    // Start listeners
-    // Tournament listeners - keep local replica in sync (handles SERVICE OUTAGE)
     new TournamentCreatedListener(natsWrapper.client).listen();
     new TournamentUpdatedListener(natsWrapper.client).listen();
     new TournamentDeletedListener(natsWrapper.client).listen();
     
-    // Participation status listeners - update when organizer approves/rejects
     new ParticipationApprovedListener(natsWrapper.client).listen();
     new ParticipationRejectedListener(natsWrapper.client).listen();
 
-    // Connect to database
     await AppDataSource.initialize();
     console.log('Database connected!');
   } catch (err) {

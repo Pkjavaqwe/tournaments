@@ -33,7 +33,6 @@ export class Tournament {
   @Column()
   organizerId!: string;
 
-  // Version for optimistic concurrency control
   @VersionColumn()
   version!: number;
 

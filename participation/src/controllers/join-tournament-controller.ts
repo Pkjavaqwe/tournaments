@@ -6,11 +6,6 @@ import { BadRequestError, NotFoundError, ParticipationStatus } from '../../../co
 import { ParticipationRequestedPublisher } from '../events/publishers/participation-requested-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
-/**
- * Join Tournament Controller
- * Only participants can join (RBAC enforced in route)
- * Creates a pending request that needs organizer approval
- */
 export const joinTournamentController = async (req: Request, res: Response) => {
   const { tournamentId } = req.body;
   const participantId = req.currentUser!.id;
@@ -19,14 +14,12 @@ export const joinTournamentController = async (req: Request, res: Response) => {
   const tournamentRepo = AppDataSource.getRepository(Tournament);
   const participationRepo = AppDataSource.getRepository(Participation);
 
-  // Check if tournament exists (from local replica)
   const tournament = await tournamentRepo.findOne({ where: { id: tournamentId } });
   
   if (!tournament) {
     throw new NotFoundError();
   }
 
-  // Check if already requested or joined
   const existingParticipation = await participationRepo.findOne({
     where: { tournamentId, participantId },
   });
@@ -43,12 +36,10 @@ export const joinTournamentController = async (req: Request, res: Response) => {
     }
   }
 
-  // Check if tournament is full
   if (tournament.currentParticipants >= tournament.maxParticipants) {
     throw new BadRequestError('Tournament is full');
   }
 
-  // Create pending participation request
   const participation = participationRepo.create({
     tournamentId,
     participantId,
@@ -59,7 +50,6 @@ export const joinTournamentController = async (req: Request, res: Response) => {
 
   await participationRepo.save(participation);
 
-  // Publish event for organizer to see the request
   await new ParticipationRequestedPublisher(natsWrapper.client).publish({
     id: participation.id,
     tournamentId,

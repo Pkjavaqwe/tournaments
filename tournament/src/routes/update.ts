@@ -9,7 +9,7 @@ router.put(
   '/api/tournaments/:id',
   currentUser,
   requireAuth,
-  requireOrganizer,  // Only organizers can update tournaments
+  requireOrganizer,
   [
     body('title').optional().notEmpty().withMessage('Title cannot be empty'),
     body('description').optional().notEmpty().withMessage('Description cannot be empty'),

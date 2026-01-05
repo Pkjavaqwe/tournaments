@@ -18,7 +18,6 @@ const start = async () => {
   }
 
   try {
-    // Connect to NATS
     await natsWrapper.connect(
       process.env.NATS_CLUSTER_ID,
       process.env.NATS_CLIENT_ID,
@@ -32,8 +31,6 @@ const start = async () => {
     process.on('SIGINT', () => natsWrapper.close());
     process.on('SIGTERM', () => natsWrapper.close());
 
-    // Start event listeners
-    // Email service is fully decoupled - just listens to events!
     new UserCreatedListener(natsWrapper.client).listen();
     new ParticipationApprovedListener(natsWrapper.client).listen();
     new ParticipationRejectedListener(natsWrapper.client).listen();

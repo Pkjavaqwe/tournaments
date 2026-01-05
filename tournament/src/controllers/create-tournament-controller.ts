@@ -21,7 +21,6 @@ export const createTournamentController = async (req: Request, res: Response) =>
 
   await tournamentRepo.save(tournament);
 
-  // Publish event
   await new TournamentCreatedPublisher(natsWrapper.client).publish({
     id: tournament.id,
     title: tournament.title,

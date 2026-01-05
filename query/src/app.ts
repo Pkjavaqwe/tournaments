@@ -17,7 +17,6 @@ app.use(
   })
 );
 
-// Health check
 app.get('/api/query/health', (req, res) => {
   res.send({ status: 'ok', service: 'query' });
 });

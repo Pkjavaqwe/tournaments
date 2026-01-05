@@ -1,4 +1,15 @@
 # User Service Postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: user-postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,6 +39,13 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: user-postgres-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -41,6 +59,17 @@ spec:
       targetPort: 5432
 ---
 # Tournament Service Postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tournament-postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -70,6 +99,13 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: tournament-postgres-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -83,6 +119,17 @@ spec:
       targetPort: 5432
 ---
 # Participation Service Postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: participation-postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -112,6 +159,13 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: participation-postgres-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -125,6 +179,17 @@ spec:
       targetPort: 5432
 ---
 # Organizer Service Postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: organizer-postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -154,6 +219,13 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: organizer-postgres-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -167,6 +239,17 @@ spec:
       targetPort: 5432
 ---
 # Query Service Postgres
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: query-postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -196,6 +279,13 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: query-postgres-pvc
 ---
 apiVersion: v1
 kind: Service

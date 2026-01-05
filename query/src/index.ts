@@ -3,7 +3,6 @@ import { app } from './app';
 import { AppDataSource } from './config/database';
 import { natsWrapper } from './nats-wrapper';
 
-// Import all listeners
 import { UserCreatedListener } from './events/listeners/user-created-listener';
 import { TournamentCreatedListener } from './events/listeners/tournament-created-listener';
 import { TournamentUpdatedListener } from './events/listeners/tournament-updated-listener';
@@ -16,7 +15,6 @@ import { ParticipationLeftListener } from './events/listeners/participation-left
 const start = async () => {
   console.log('Starting Query Service (CQRS Read Model)...');
 
-  // Check required environment variables
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error('NATS_CLIENT_ID must be defined');
   }
@@ -28,7 +26,6 @@ const start = async () => {
   }
 
   try {
-    // Connect to NATS
     await natsWrapper.connect(
       process.env.NATS_CLUSTER_ID,
       process.env.NATS_CLIENT_ID,
@@ -42,20 +39,15 @@ const start = async () => {
     process.on('SIGINT', () => natsWrapper.close());
     process.on('SIGTERM', () => natsWrapper.close());
 
-    // Initialize database
     await AppDataSource.initialize();
     console.log('Query database connected');
 
-    // Start all CQRS listeners - these build the read model
-    // User events
     new UserCreatedListener(natsWrapper.client).listen();
     
-    // Tournament events
     new TournamentCreatedListener(natsWrapper.client).listen();
     new TournamentUpdatedListener(natsWrapper.client).listen();
     new TournamentDeletedListener(natsWrapper.client).listen();
     
-    // Participation events
     new ParticipationRequestedListener(natsWrapper.client).listen();
     new ParticipationApprovedListener(natsWrapper.client).listen();
     new ParticipationRejectedListener(natsWrapper.client).listen();

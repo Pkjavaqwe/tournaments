@@ -19,7 +19,6 @@ export class TournamentUpdatedListener extends Listener<TournamentUpdatedEvent> 
       return;
     }
 
-    // Optimistic concurrency check
     if (tournament.version !== version - 1) {
       console.log(`Version mismatch for tournament ${id}. Expected ${tournament.version + 1}, got ${version}`);
       return;

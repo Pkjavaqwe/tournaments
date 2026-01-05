@@ -3,9 +3,6 @@ import { Listener, Subjects, ParticipationRejectedEvent } from '../../../../comm
 import { queueGroupName } from './queue-group-name';
 import { EmailService } from '../../services/email-service';
 
-/**
- * Listens for participation rejection and sends email to participant
- */
 export class ParticipationRejectedListener extends Listener<ParticipationRejectedEvent> {
   readonly subject = Subjects.ParticipationRejected;
   queueGroupName = queueGroupName;

@@ -15,14 +15,12 @@ export const deleteTournamentController = async (req: Request, res: Response) =>
     throw new NotFoundError();
   }
 
-  // Only organizer who created this tournament can delete it
   if (tournament.organizerId !== req.currentUser!.id) {
     throw new NotAuthorizedError();
   }
 
   await tournamentRepo.remove(tournament);
 
-  // Publish event
   await new TournamentDeletedPublisher(natsWrapper.client).publish({
     id,
     organizerId: tournament.organizerId,

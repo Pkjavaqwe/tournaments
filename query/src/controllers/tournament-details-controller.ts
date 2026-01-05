@@ -5,10 +5,6 @@ import { Participation } from '../entities/participation';
 import { User } from '../entities/user';
 import { NotFoundError, ParticipationStatus } from '../../../common/src';
 
-/**
- * Get tournament details with participants
- * This is a denormalized view combining data from multiple services
- */
 export const tournamentDetailsController = async (req: Request, res: Response) => {
   const { id } = req.params;
 
@@ -22,10 +18,8 @@ export const tournamentDetailsController = async (req: Request, res: Response) =
     throw new NotFoundError();
   }
 
-  // Get organizer info
   const organizer = await userRepo.findOne({ where: { id: tournament.organizerId } });
 
-  // Get approved participants
   const approvedParticipations = await participationRepo.find({
     where: {
       tournamentId: id,
@@ -33,7 +27,6 @@ export const tournamentDetailsController = async (req: Request, res: Response) =
     },
   });
 
-  // Get pending requests count (for organizer view)
   const pendingCount = await participationRepo.count({
     where: {
       tournamentId: id,

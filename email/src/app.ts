@@ -7,12 +7,10 @@ const app = express();
 app.set('trust proxy', true);
 app.use(express.json());
 
-// Health check endpoint
 app.get('/api/email/health', (req, res) => {
   res.send({ status: 'ok', service: 'email' });
 });
 
-// View email logs (for POC/debugging)
 app.get('/api/email/logs', (req, res) => {
   const logs = EmailService.getEmailLogs();
   res.send({
@@ -21,7 +19,6 @@ app.get('/api/email/logs', (req, res) => {
   });
 });
 
-// Clear email logs (for POC/testing)
 app.delete('/api/email/logs', (req, res) => {
   EmailService.clearLogs();
   res.send({ message: 'Email logs cleared' });

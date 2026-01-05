@@ -8,7 +8,7 @@ router.post(
   '/api/organizer/requests/:requestId/approve',
   currentUser,
   requireAuth,
-  requireOrganizer,  // Only organizers can approve
+  requireOrganizer,
   approveRequestController
 );
 

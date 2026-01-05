@@ -5,10 +5,6 @@ import {
   VersionColumn,
 } from 'typeorm';
 
-/**
- * Local replica of Tournament data
- * Used to get tournament title for email notifications
- */
 @Entity('tournaments')
 export class Tournament {
   @PrimaryColumn()

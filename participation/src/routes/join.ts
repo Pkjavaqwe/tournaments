@@ -9,7 +9,7 @@ router.post(
   '/api/participations/join',
   currentUser,
   requireAuth,
-  requireParticipant,  // Only participants can join tournaments
+  requireParticipant,
   [
     body('tournamentId').notEmpty().withMessage('Tournament ID is required'),
   ],

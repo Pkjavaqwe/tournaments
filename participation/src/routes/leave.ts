@@ -8,7 +8,7 @@ router.delete(
   '/api/participations/:tournamentId/leave',
   currentUser,
   requireAuth,
-  requireParticipant,  // Only participants can leave tournaments
+  requireParticipant,
   leaveTournamentController
 );
 

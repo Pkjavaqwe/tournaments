@@ -8,7 +8,7 @@ router.delete(
   '/api/tournaments/:id',
   currentUser,
   requireAuth,
-  requireOrganizer,  // Only organizers can delete tournaments
+  requireOrganizer,
   deleteTournamentController
 );
 

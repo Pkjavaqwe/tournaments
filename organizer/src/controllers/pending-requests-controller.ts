@@ -3,10 +3,6 @@ import { AppDataSource } from '../config/database';
 import { ParticipationRequest } from '../entities/participation-request';
 import { ParticipationStatus } from '../../../common/src';
 
-/**
- * Get pending requests for organizer's tournaments
- * Only shows requests where the current user is the organizer
- */
 export const pendingRequestsController = async (req: Request, res: Response) => {
   const organizerId = req.currentUser!.id;
 

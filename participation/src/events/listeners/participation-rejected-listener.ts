@@ -4,9 +4,6 @@ import { AppDataSource } from '../../config/database';
 import { Participation } from '../../entities/participation';
 import { queueGroupName } from './queue-group-name';
 
-/**
- * Updates participation status when organizer rejects
- */
 export class ParticipationRejectedListener extends Listener<ParticipationRejectedEvent> {
   readonly subject = Subjects.ParticipationRejected;
   queueGroupName = queueGroupName;
@@ -22,7 +19,6 @@ export class ParticipationRejectedListener extends Listener<ParticipationRejecte
       return;
     }
 
-    // Optimistic concurrency check
     if (participation.version !== version - 1) {
       console.log(`Version mismatch for participation ${id}`);
       return;

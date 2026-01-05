@@ -7,10 +7,6 @@ import {
 } from 'typeorm';
 import { ParticipationStatus } from '../../../common/src';
 
-/**
- * Local replica of participation requests
- * Organizer service needs to see pending requests for their tournaments
- */
 @Entity('participation_requests')
 export class ParticipationRequest {
   @PrimaryColumn()

@@ -20,7 +20,6 @@ const start = async () => {
   }
 
   try {
-    // Connect to NATS
     await natsWrapper.connect(
       process.env.NATS_CLUSTER_ID,
       process.env.NATS_CLIENT_ID,
@@ -34,7 +33,6 @@ const start = async () => {
     process.on('SIGINT', () => natsWrapper.close());
     process.on('SIGTERM', () => natsWrapper.close());
 
-    // Connect to database
     await AppDataSource.initialize();
     console.log('Database connected!');
   } catch (err) {

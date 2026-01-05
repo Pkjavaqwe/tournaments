@@ -18,17 +18,14 @@ export class ParticipationApprovedListener extends Listener<ParticipationApprove
 
     if (!tournament) {
       console.error(`Tournament not found: ${tournamentId}`);
-      // Don't ack - let it retry or go to dead letter
       return;
     }
 
-    // Increment participant count (with optimistic locking via version)
     tournament.currentParticipants += 1;
     
     try {
       await tournamentRepo.save(tournament);
       
-      // Publish tournament updated event
       await new TournamentUpdatedPublisher(natsWrapper.client).publish({
         id: tournament.id,
         title: tournament.title,
@@ -44,7 +41,6 @@ export class ParticipationApprovedListener extends Listener<ParticipationApprove
       msg.ack();
     } catch (err) {
       console.error('Error updating tournament:', err);
-      // Don't ack - let NATS retry
     }
   }
 }

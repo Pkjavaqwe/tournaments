@@ -19,7 +19,6 @@ export class ParticipationRejectedListener extends Listener<ParticipationRejecte
       return;
     }
 
-    // Optimistic concurrency check
     if (participation.version !== version - 1) {
       console.log(`Version mismatch for participation ${id}`);
       return;

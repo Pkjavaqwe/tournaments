@@ -20,13 +20,11 @@ export const signinController = async (req: Request, res: Response) => {
     throw new BadRequestError('Invalid credentials');
   }
 
-  // Generate JWT with role included
   const userJwt = jwt.sign(
     { id: existingUser.id, email: existingUser.email, role: existingUser.role },
     process.env.JWT_KEY!
   );
 
-  // Store it on session object
   req.session = { jwt: userJwt };
 
   res.status(200).send({

@@ -4,10 +4,6 @@ import { AppDataSource } from '../../config/database';
 import { ParticipationRequest } from '../../entities/participation-request';
 import { queueGroupName } from './queue-group-name';
 
-/**
- * Listens for participation requests
- * Creates local replica for organizer to view and act on
- */
 export class ParticipationRequestedListener extends Listener<ParticipationRequestedEvent> {
   readonly subject = Subjects.ParticipationRequested;
   queueGroupName = queueGroupName;

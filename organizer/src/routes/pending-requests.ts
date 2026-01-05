@@ -8,7 +8,7 @@ router.get(
   '/api/organizer/requests',
   currentUser,
   requireAuth,
-  requireOrganizer,  // Only organizers can view requests
+  requireOrganizer,
   pendingRequestsController
 );
 

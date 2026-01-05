@@ -16,22 +16,18 @@ export const signupController = async (req: Request, res: Response) => {
     throw new BadRequestError('Email in use');
   }
 
-  // Validate role
   const userRole = role === UserRole.ORGANIZER ? UserRole.ORGANIZER : UserRole.PARTICIPANT;
 
   const user = userRepo.create({ email, password, role: userRole });
   await userRepo.save(user);
 
-  // Generate JWT with role included
   const userJwt = jwt.sign(
     { id: user.id, email: user.email, role: user.role },
     process.env.JWT_KEY!
   );
 
-  // Store it on session object
   req.session = { jwt: userJwt };
 
-  // Publish user created event (for email service to send welcome email)
   await new UserCreatedPublisher(natsWrapper.client).publish({
     id: user.id,
     email: user.email,

@@ -4,10 +4,6 @@ import { AppDataSource } from '../../config/database';
 import { Tournament } from '../../entities/tournament';
 import { queueGroupName } from './queue-group-name';
 
-/**
- * Keeps local Tournament replica in sync
- * Handles CONCURRENCY via version checking
- */
 export class TournamentUpdatedListener extends Listener<TournamentUpdatedEvent> {
   readonly subject = Subjects.TournamentUpdated;
   queueGroupName = queueGroupName;
@@ -23,11 +19,8 @@ export class TournamentUpdatedListener extends Listener<TournamentUpdatedEvent> 
       return;
     }
 
-    // Optimistic Concurrency Control
-    // Only process if this event is the next version we expect
     if (tournament.version !== version - 1) {
       console.log(`Version mismatch for tournament ${id}. Expected ${tournament.version + 1}, got ${version}`);
-      // Don't ack - NATS will redeliver, hopefully in correct order
       return;
     }
 

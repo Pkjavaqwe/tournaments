@@ -4,10 +4,6 @@ import { AppDataSource } from '../../config/database';
 import { Tournament } from '../../entities/tournament';
 import { queueGroupName } from './queue-group-name';
 
-/**
- * Keeps local Tournament replica in sync
- * This handles SERVICE OUTAGE - we have local tournament data
- */
 export class TournamentCreatedListener extends Listener<TournamentCreatedEvent> {
   readonly subject = Subjects.TournamentCreated;
   queueGroupName = queueGroupName;

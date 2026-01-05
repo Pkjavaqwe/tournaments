@@ -21,10 +21,10 @@ export abstract class Listener<T extends Event> {
   subscriptionOptions() {
     return this.client
       .subscriptionOptions()
-      .setDeliverAllAvailable()    // Get all past events (for service recovery)
-      .setManualAckMode(true)       // Manual acknowledgment for reliability
-      .setAckWait(this.ackWait)     // Wait time before NATS redelivers
-      .setDurableName(this.queueGroupName);  // Remember position for service restarts
+      .setDeliverAllAvailable()
+      .setManualAckMode(true)
+      .setAckWait(this.ackWait)
+      .setDurableName(this.queueGroupName);
   }
 
   listen() {

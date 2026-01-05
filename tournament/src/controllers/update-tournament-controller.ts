@@ -16,7 +16,6 @@ export const updateTournamentController = async (req: Request, res: Response) =>
     throw new NotFoundError();
   }
 
-  // Only organizer who created this tournament can update it
   if (tournament.organizerId !== req.currentUser!.id) {
     throw new NotAuthorizedError();
   }
@@ -29,7 +28,6 @@ export const updateTournamentController = async (req: Request, res: Response) =>
 
   await tournamentRepo.save(tournament);
 
-  // Publish event
   await new TournamentUpdatedPublisher(natsWrapper.client).publish({
     id: tournament.id,
     title: tournament.title,

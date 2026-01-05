@@ -9,7 +9,7 @@ router.post(
   '/api/organizer/requests/:requestId/reject',
   currentUser,
   requireAuth,
-  requireOrganizer,  // Only organizers can reject
+  requireOrganizer,
   [
     body('reason').optional().isString().withMessage('Reason must be a string'),
   ],

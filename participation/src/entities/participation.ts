@@ -41,7 +41,6 @@ export class Participation {
   })
   status!: ParticipationStatus;
 
-  // Version for optimistic concurrency control
   @VersionColumn()
   version!: number;
 

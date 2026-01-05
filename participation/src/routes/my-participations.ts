@@ -8,7 +8,7 @@ router.get(
   '/api/participations/my',
   currentUser,
   requireAuth,
-  requireParticipant,  // Only participants can view their participations
+  requireParticipant,
   myParticipationsController
 );
 

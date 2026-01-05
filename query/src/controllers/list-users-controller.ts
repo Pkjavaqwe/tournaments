@@ -14,7 +14,7 @@ export const listUsersController = async (req: Request, res: Response) => {
 
   const users = await userRepo.find({
     where: query,
-    select: ['id', 'email', 'role'],  // Don't return version
+    select: ['id', 'email', 'role'],
   });
 
   res.send(users);
