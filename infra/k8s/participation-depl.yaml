@@ -42,6 +42,7 @@ spec:
                   key: POSTGRES_PASSWORD
             - name: DB_NAME
               value: participation_db
+            
 ---
 apiVersion: v1
 kind: Service

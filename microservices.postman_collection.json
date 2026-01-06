@@ -1,0 +1,1378 @@
+{
+	"info": {
+		"_postman_id": "1cf365e2-3706-4023-b356-151aa7292540",
+		"name": "microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37608712"
+	},
+	"item": [
+		{
+			"name": "https://tournaments.dev/api/query/tournaments/68c3d6af-ad60-4eb0-832a-a39c06cb4859",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"football Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/query/tournaments/68c3d6af-ad60-4eb0-832a-a39c06cb4859",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"query",
+						"tournaments",
+						"68c3d6af-ad60-4eb0-832a-a39c06cb4859"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/tournaments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"football Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/organizer/requests/fd90d217-2654-42a1-bff6-1219e4414a94/reject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/organizer/requests/fd90d217-2654-42a1-bff6-1219e4414a94/reject",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"organizer",
+						"requests",
+						"fd90d217-2654-42a1-bff6-1219e4414a94",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/organizer/requests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/organizer/requests",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"organizer",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/organizer/requests/123e4567-e89b-12d3-a456-426614174000/reject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/organizer/requests/123e4567-e89b-12d3-a456-426614174000/reject",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"organizer",
+						"requests",
+						"123e4567-e89b-12d3-a456-426614174000",
+						"reject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/organizer/requests/2e00e7a9-5aa1-48e3-af4c-ae0065384d20/approve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/organizer/requests/2e00e7a9-5aa1-48e3-af4c-ae0065384d20/approve",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"organizer",
+						"requests",
+						"2e00e7a9-5aa1-48e3-af4c-ae0065384d20",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/organizer/requests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/organizer/requests",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"organizer",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signin",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/participations/my",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"tournamentId\": \"68c3d6af-ad60-4eb0-832a-a39c06cb4859\"\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/participations/my",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"participations",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/participations/join",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"tournamentId\": \"68c3d6af-ad60-4eb0-832a-a39c06cb4859\"\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/participations/join",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"participations",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"p2@gmail.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signin",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/participations/join",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"tournamentId\": \"bf6fdea4-4518-4ea7-aa02-88bad9231690\"\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/participations/join",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"participations",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/participations/join",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"tournamentId\": \"78a01062-39d0-4dc3-971e-4265ed8ee8d1\"\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/participations/join",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"participations",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"p1@gmail.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signin",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/tournaments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"football Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/tournaments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"football Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/tournaments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Summer billiards Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/tournaments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Summer chess Championship 2026\",\n    \"description\": \"Annual summer gaming tournament with exciting prizes\",\n    \"startDate\": \"2026-06-01T09:00:00.000Z\",\n    \"endDate\": \"2026-06-15T18:00:00.000Z\",\n    \"maxParticipants\": 2\n  }"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signin",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"p3@gmail.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"participant\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"p2@gmail.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"participant\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"p1@gmail.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"participant\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"manhatten@club.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"organizer\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"mumbai@club.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"organizer\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"organizer\"\n}"
+				},
+				"url": {
+					"raw": "https://tournaments.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tournaments.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"email\": \"ohio@club.com\",\n    \"password\": \"pass@123\",\n    \"role\": \"organizer\"\n}"
+				},
+				"url": {
+					"raw": "tournaments.dev/api/users/signup",
+					"host": [
+						"tournaments",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/my-loans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/my-loans",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"my-loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"customer@test.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"financer@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/my-requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/my-requests",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"my-requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"sales@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/2/approve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remarks\": \"Approved based on credit score\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/loans/2/approve",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"2",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"financer@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/request-for-customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100000,\n  \"purpose\": \"Business expansion\",\n  \"customerId\": 1\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/loans/request-for-customer",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"request-for-customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/request-for-customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100000,\n  \"purpose\": \"Business expansion\",\n  \"customerId\": 5\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/loans/request-for-customer",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"request-for-customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"sales@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"sales@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"financer@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/my-loans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/my-loans",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"my-loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"customer@test.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/my-requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/my-requests",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"my-requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"customer@test.com\",\n  \"password\": \"password123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/1/approve",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"remarks\": \"Approved based on credit score\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/loans/1/approve",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"1",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/loans/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"financer@gmail.com\",\n  \"password\": \"pass@123\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/loans/request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 50000,\n  \"purpose\": \"Home renovation\",\n  \"customerId\": 1\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/loans/request",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"loans",
+						"request"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

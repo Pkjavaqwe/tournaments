@@ -53,7 +53,7 @@ const start = async () => {
     new ParticipationRejectedListener(natsWrapper.client).listen();
     new ParticipationLeftListener(natsWrapper.client).listen();
 
-    console.log('All CQRS listeners started - building read model from events');
+    console.log('All query listeners started - building read model from events');
   } catch (err) {
     console.error(err);
     process.exit(1);
